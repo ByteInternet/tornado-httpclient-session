@@ -1,6 +1,27 @@
 Tornado-HttpClient-Session
 ==========================
 
+**Update 2016-06-14: tornado-httpclient-session has vanished from PyPi. This is a fork of Saaj, with the cached data from the official PyPi package merged for backwards compatibility. From the original metadata:**
+
+.. code-block:: text
+
+    Metadata-Version: 2.0
+    Name: tornado-httpclient-session
+    Version: 0.2.1
+    Summary: Session support to tornado.httpclient.
+    Home-page: https://github.com/mailto1587/tornado-httpclient-session
+    Author: mailto1587
+    Author-email: mailto1587@gmail.com
+    License: http://opensource.org/licenses/MIT
+    Keywords: Tornado,HttpClient,Session
+    Platform: UNKNOWN
+    Classifier: Programming Language :: Python :: 2
+    Classifier: Programming Language :: Python :: 3
+    Requires-Dist: tornado
+
+Old info
+----
+
 A mimic inspired by the session feature in `Requests <https://github.com/kennethreitz/requests>`_, 
 it adds support to `Tornado <https://github.com/tornadoweb/tornado>`_ that allows you to persist 
 context such as cookies and other parameters across requests' fetching from 
