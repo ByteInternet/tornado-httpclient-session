@@ -9,4 +9,3 @@ class CookieTestCase(AsyncHTTPTestCase):
 
         response = self.fetch('/cookie')
         self.assertIn('cookie', response.request.headers)
-

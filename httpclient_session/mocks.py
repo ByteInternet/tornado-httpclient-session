@@ -10,6 +10,7 @@ class MockRequest(object):
 
     def __init__(self, request):
         self._request = request
+        self.type = self.get_type()
 
     def get_full_url(self):
         if not self._request.headers.get('host'):
@@ -38,11 +39,11 @@ class MockRequest(object):
 
     def get_origin_req_host(self):
         return self.get_host()
-    
+
     @property
     def origin_req_host(self):
-        '''Python 3 compatibility'''
-        
+        """ Python 3 compatibility """
+
         return self.get_origin_req_host()
 
     def has_header(self, name):
@@ -74,8 +75,7 @@ class MockResponse(object):
 
     def getheaders(self, name):
         return self._response.headers.get_list(name)
-    
-    def get_all(self, name, failobj=None):
-        '''Python 3 changes, see http://bugs.python.org/issue4773'''
-        return self._response.headers.get_list(name) or failobj
 
+    def get_all(self, name, failobj=None):
+        """ Python 3 changes, see http://bugs.python.org/issue4773. """
+        return self._response.headers.get_list(name) or failobj

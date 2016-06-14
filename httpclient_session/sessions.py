@@ -31,15 +31,14 @@ class Session(object):
         if self._closed:
             raise RuntimeError("fetch() called on closed session")
         if not isinstance(request, HTTPRequest):
-            request = HTTPRequest(url=request)
+            request = HTTPRequest(url=request, **kwargs)
 
         request = self.prepare_request(request)
         callback = self.prepare_callback(callback)
 
         result = self._httpclient.fetch(request,
                                         callback=callback,
-                                        raise_error=raise_error,
-                                        **kwargs)
+                                        raise_error=raise_error)
 
         return result
 

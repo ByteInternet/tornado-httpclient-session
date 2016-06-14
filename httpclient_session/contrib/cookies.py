@@ -14,13 +14,14 @@ import collections
 
 try:
     from urlparse import urlparse, urlunparse
-    import cookielib
     from Cookie import Morsel
+
+    import cookielib
 except ImportError:
     from urllib.parse import urlparse, urlunparse
-    import http.cookiejar as cookielib
     from http.cookies import Morsel
 
+    import http.cookiejar as cookielib
 
 try:
     import threading
