@@ -3,7 +3,6 @@ try:
 except ImportError:
     from urllib.parse import urlparse, urlunparse
 
-from tornado.httputil import _normalized_headers
 
 
 class MockRequest(object):
@@ -68,7 +67,7 @@ class MockResponse(object):
         return self
 
     def getallmatchingheaders(self, name):
-        norm_name = _normalized_headers[name]
+        norm_name = "-".join(w.capitalize() for w in name.split("-"))
 
         return ['{0}: {1}'.format(norm_name, value)
                 for value in self._response.headers.get_list(name)]
